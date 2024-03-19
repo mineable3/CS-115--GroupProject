@@ -1,0 +1,7 @@
+
+ROADMAP
+
+[superclass] _world [classes] _dungeon1 _dungeon2 _dungeon3
+[superclass] _enemy [classes] _Skeleton _Zombie _Slime
+
+3 fields (attack)(Health)(Points) for player class
