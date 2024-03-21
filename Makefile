@@ -1,12 +1,12 @@
 filename = Main
 
-all: compile run clean
+all: compile run
 
 compile:
-	javac  $(filename).java
+	javac $(filename).java
 
 run:
-	java  $(filename)
+	java $(filename)
 
 clean:
-	rm *.class
+	rm $(filename).class

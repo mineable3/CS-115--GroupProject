@@ -5,4 +5,26 @@
 
  public class Enemy {
 
+  protected boolean alive;
+  protected double hp, damage, pointReward;
+
+  public Enemy() {}
+
+  public boolean isAlive() {
+    return alive;
+  }
+
+  public double getPointReward() {
+    return pointReward;
+  }
+
+  public double getDamage() {
+    return damage;
+  }
+
+  public double getHp() {
+    return hp;
+  }
+
+
 }
