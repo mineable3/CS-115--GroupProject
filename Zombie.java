@@ -4,4 +4,9 @@ public class Zombie extends Enemy{
   {
     super(hp, damage, pointReward);
   }
+
+  public void attack(Player target)
+  {
+
+  }
 }
