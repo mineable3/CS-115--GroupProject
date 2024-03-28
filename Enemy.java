@@ -3,7 +3,7 @@
  * We will use this class when making all of the different enemies
  */
 
- public class Enemy {
+ public abstract class  Enemy {
 
   protected boolean alive;
   protected int hp, damage, pointReward;
@@ -33,4 +33,12 @@
   public void setHp(int hp) {
     this.hp = hp;
   }
+
+  public void addDamage(int damage)
+  {
+    hp = hp - damage;
+  }
+
+  public abstract void attack (Player target);
+
 }
