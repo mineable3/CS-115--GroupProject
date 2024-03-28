@@ -8,7 +8,11 @@
   protected boolean alive;
   protected int hp, damage, pointReward;
 
-  public Enemy() {}
+  public Enemy(int hp,int damage,int pointReward) {
+    this.hp = hp;
+    this.damage = damage;
+    this.pointReward = pointReward;
+  }
 
   public boolean isAlive() {
     return alive;
