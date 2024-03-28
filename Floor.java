@@ -3,10 +3,10 @@
  * We will use this to create the levels for the game
  */
 
-public class Floor {
+public abstract class Floor {
 
   protected boolean completed = false;
-  protected double levelNumber = -1;
+  protected int levelNumber = -1;
 
   public Floor() {}
 
@@ -14,11 +14,13 @@ public class Floor {
     System.out.println("The room is dark and dungeon like");
   }
 
-  public double getLevelNumber() {
+  public int getLevelNumber() {
     return levelNumber;
   }
 
   public boolean isCompleted() {
     return completed;
   }
+
+  public abstract void run(Player p);
 }

@@ -6,7 +6,7 @@
  public class Enemy {
 
   protected boolean alive;
-  protected double hp, damage, pointReward;
+  protected int hp, damage, pointReward;
 
   public Enemy() {}
 
@@ -14,17 +14,19 @@
     return alive;
   }
 
-  public double getPointReward() {
+  public int getPointReward() {
     return pointReward;
   }
 
-  public double getDamage() {
+  public int getDamage() {
     return damage;
   }
 
-  public double getHp() {
+  public int getHp() {
     return hp;
   }
 
-
+  public void setHp(int hp) {
+    this.hp = hp;
+  }
 }
