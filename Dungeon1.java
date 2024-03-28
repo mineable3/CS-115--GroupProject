@@ -10,8 +10,7 @@ public class Dungeon1 extends Floor{
     boolean fighting = true;
     boolean lookedAround = false;
     String command = "";
-    Enemy skeleton = new Skeleton();
-    skeleton.setHp(100);
+    Enemy skeleton = new Skeleton(100, 10,200);
     Scanner keyboard = new Scanner(System.in);
 
     displayLevelInformation();
