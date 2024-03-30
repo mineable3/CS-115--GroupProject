@@ -56,11 +56,9 @@ public class Dungeon1 extends Floor{
           } else {
             System.out.println("There is nothing to pickup");
           }
+          break;
       }
       System.out.println();
-
-      System.out.println("The skeleton attacks you for 10hp!");
-      player.addDamage(10);
 
       System.out.println("HP: " + player.getHp());
 
