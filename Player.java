@@ -16,6 +16,11 @@ public class Player {
     this.hp = hp;
   }
 
+  public void addDamage(int damage)
+  {
+    hp = hp - damage;
+  }
+
   public int getScore() {
     return score;
   }
