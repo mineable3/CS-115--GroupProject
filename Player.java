@@ -18,7 +18,7 @@ public class Player {
 
   public void addDamage(int damage)
   {
-    hp = hp - damage;
+    hp -= damage;
   }
 
   public int getScore() {
@@ -27,6 +27,10 @@ public class Player {
 
   public void setScore(int score) {
     this.score = score;
+  }
+
+  public void addScore(int score) {
+    this.score += score;
   }
 
   public String[] getInventory() {

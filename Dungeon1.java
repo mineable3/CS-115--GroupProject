@@ -60,12 +60,11 @@ public class Dungeon1 extends Floor{
       System.out.println();
 
       System.out.println("The skeleton attacks you for 10hp!");
-      player.setHp(player.getHp() - 10);
+      player.addDamage(10);
 
       System.out.println("HP: " + player.getHp());
 
       if(skeleton.getHp() <= 0) {
-        player.setScore(player.getScore() + skeleton.getPointReward());
         completed = true;
         fighting = false;
         break;
@@ -77,7 +76,7 @@ public class Dungeon1 extends Floor{
     if(completed) {
       System.out.println("You defeated the skeleton!");
       System.out.println("+200 POINTS");
-      player.setScore(player.getScore() + skeleton.getPointReward());
+      player.addScore(skeleton.getPointReward());
     } else {
       System.out.println("You didn't defeat the skeleton");
     }
@@ -92,17 +91,17 @@ public class Dungeon1 extends Floor{
   private void useItem(Player p, Enemy e, String item) {
     switch (item) {
       case "short_sword":
-        e.setHp(e.getHp() - 10);
+        e.addDamage(10);
         System.out.println("You attack the skeleton for 10hp");
         break;
 
       case "long_sword":
-        e.setHp(e.getHp() - 20);
+        e.addDamage(20);
         System.out.println("You attack the skeleton for 20hp");
         break;
 
       case "health_potion":
-        p.setHp(p.getHp() + 20);
+        p.addDamage(-20);
         p.removeItem("health_potion");
         System.out.println("You gained 20 hp!");
         break;
