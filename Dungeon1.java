@@ -36,16 +36,17 @@ public class Dungeon1 extends Floor{
           String item = keyboard.next();
           if(player.hasItem(item)) {
             useItem(player, skeleton, item);
+            skeleton.attack(player);
           } else {
             System.out.println("You don't have that item");
           }
-          // managing inventory method?
           break;
 
         case "look":
           System.out.println();
           lookedAround = true;
           System.out.println("A health potion sits on the shelf");
+          skeleton.attack(player);
           break;
 
         case "pickup":
@@ -56,6 +57,7 @@ public class Dungeon1 extends Floor{
           } else {
             System.out.println("There is nothing to pickup");
           }
+          skeleton.attack(player);
           break;
 
         default:

@@ -7,6 +7,7 @@ public class Skeleton extends Enemy{
 
     public void attack(Player target)
     {
-
+      System.out.println("The skeleton attacks you");
+      target.addDamage(getDamage());
     }
 }
