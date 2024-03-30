@@ -66,9 +66,10 @@ public class Player {
 
   public void removeItem(String target) {
     String[] tempInventory = new String[inventory.length-1];
+    boolean removedItem = false;
 
     for(int i = 0; i < inventory.length; i++) {
-      if(!target.equals(inventory[i])) {
+      if(!target.equals(inventory[i]) && !removedItem) {
         tempInventory[i] = inventory[i];
       }
     }
