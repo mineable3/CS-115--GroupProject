@@ -57,6 +57,10 @@ public class Dungeon1 extends Floor{
             System.out.println("There is nothing to pickup");
           }
           break;
+
+        default:
+          System.out.println("That is not a command");
+          break;
       }
       System.out.println();
 
