@@ -27,17 +27,23 @@ public abstract class Floor {
       case "short_sword":
         e.addDamage(10);
         System.out.println("You attack the skeleton for 10hp");
+        p.addDamage(e.getDamage());
         break;
 
       case "long_sword":
         e.addDamage(20);
         System.out.println("You attack the skeleton for 20hp");
+        p.addDamage(e.getDamage());
+        break;
+
+      case "small_shield":
         break;
 
       case "health_potion":
         p.addDamage(-20);
         p.removeItem("health_potion");
         System.out.println("You gained 20 hp!");
+        p.addDamage(e.getDamage());
         break;
 
       case "":

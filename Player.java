@@ -18,6 +18,9 @@ public class Player {
 
   public void addDamage(int damage)
   {
+    if(hasItem("small_shield (passive)")) {
+      hp -= (damage - 5);
+    }
     hp -= damage;
   }
 
@@ -71,6 +74,7 @@ public class Player {
     for(int i = 0; i < inventory.length; i++) {
       if(!target.equals(inventory[i]) && !removedItem) {
         tempInventory[i] = inventory[i];
+        removedItem = true;
       }
     }
     inventory = tempInventory;
