@@ -32,8 +32,7 @@ public class Dungeon1 extends Floor{
           fighting = false;
           break;
 
-        case "item":
-          System.out.println();
+        case "use_item":
           player.displayInventory();
           System.out.print("What item would you like to use?: ");
           String item = keyboard.next();
@@ -77,7 +76,7 @@ public class Dungeon1 extends Floor{
           break;
       }
       System.out.println();
-
+      System.out.println("==============================");
       System.out.println("HP: " + player.getHp());
 
       if(skeleton.getHp() <= 0) {

@@ -30,7 +30,6 @@ public class Dungeon0 extends Floor{
           break;
 
         case "use_item":
-          System.out.println();
           player.displayInventory();
           System.out.print("What item would you like to use?: ");
           String item = keyboard.next();
@@ -81,7 +80,7 @@ public class Dungeon0 extends Floor{
           break;
       }
       System.out.println();
-
+      System.out.println("==============================");
       System.out.println("HP: " + player.getHp());
 
       if(slime.getHp() <= 0) {
@@ -103,5 +102,4 @@ public class Dungeon0 extends Floor{
       System.out.println("You died leaving your bones as a reminder to future adventurers");
     }
   }
-
 }
