@@ -3,12 +3,12 @@
  * We will use this class when making all of the different enemies
  */
 
- public abstract class Enemy {
+ public abstract class  Enemy {
 
   protected boolean alive;
   protected int hp, damage, pointReward;
 
-  public Enemy(int hp, int damage, int pointReward) {
+  public Enemy(int hp,int damage,int pointReward) {
     this.hp = hp;
     this.damage = damage;
     this.pointReward = pointReward;
@@ -18,17 +18,27 @@
     return alive;
   }
 
-  public double getPointReward() {
+  public int getPointReward() {
     return pointReward;
   }
 
-  public double getDamage() {
+  public int getDamage() {
     return damage;
   }
 
-  public double getHp() {
+  public int getHp() {
     return hp;
   }
 
+  public void setHp(int hp) {
+    this.hp = hp;
+  }
+
+  public void addDamage(int damage)
+  {
+    hp = hp - damage;
+  }
+
+  public abstract void attack (Player target);
 
 }

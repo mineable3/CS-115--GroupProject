@@ -1,70 +1,78 @@
 import java.util.Scanner;
 
-public class Dungeon1 extends Floor{
-
-  public Dungeon1() {
-    levelNumber = 1;
-  }
+public class Dungeon0 extends Floor{
 
   public void run(Player player) {
+
     boolean fighting = true;
-    boolean lookedAround = false;
+    int timesLooked = 0;
     int itemsPickedUp = 0;
     String command = "";
-    Skeleton skeleton = new Skeleton(100, 10,200);
+    Slime slime = new Slime(20, 2,100);
     Scanner keyboard = new Scanner(System.in);
 
     displayLevelInformation();
     System.out.println();
-    System.out.println("A skeleton appears!");
+    System.out.println("A slime appears!");
 
     while(fighting) {
       System.out.println("==============================");
-      System.out.println("Commands: run   item   look   pickup");
+      System.out.println("Commands: run   use_item   show_items   look   pickup");
       System.out.print("What would you like to do?: ");
       command = keyboard.next();
 
       switch(command) {
         case "run":
           System.out.println();
-          System.out.println("The skeleton lunges and stabs you in the back");
+          System.out.println("You slip on the slime and fall hitting your head");
           fighting = false;
           break;
 
-        case "item":
+        case "use_item":
           System.out.println();
           player.displayInventory();
           System.out.print("What item would you like to use?: ");
           String item = keyboard.next();
           if(player.hasItem(item)) {
-            useItem(player, skeleton, item);
+            useItem(player, slime, item);
           } else {
             System.out.println("You don't have that item");
           }
           break;
 
+        case "show_items":
+          player.displayInventory();
+          break;
+
         case "look":
           System.out.println();
-          lookedAround = true;
-          if(itemsPickedUp < 1) {
-            System.out.println("A health potion sits on the shelf");
+          timesLooked += 1;
+          if(itemsPickedUp == 0) {
+            System.out.println("A short sword is lying in the corner");
+          } else if(itemsPickedUp == 1) {
+            System.out.println("Behind the door lays a small shield");
           } else {
-            System.out.println("There is an empty shelf across the room");
+            System.out.println("Dust and cobwebs fill the corners of the room");
           }
 
-          skeleton.attack(player);
+          slime.attack(player);
           break;
 
         case "pickup":
           System.out.println();
-          if(lookedAround && itemsPickedUp < 1) {
-            System.out.println("You pickup the health potion");
-            player.addItem("health_potion");
+          if(timesLooked == 1 && itemsPickedUp == 0) {
+            System.out.println("You pickup the short sword");
+            player.addItem("short_sword");
+            itemsPickedUp += 1;
+          } else if(timesLooked == 2 && itemsPickedUp == 1) {
+            System.out.println("You pickup the small shield");
+            System.out.println("The small shield blocks 5 incoming damage");
+            player.addItem("small_shield (passive)");
             itemsPickedUp += 1;
           } else {
             System.out.println("There is nothing to pickup");
           }
-          skeleton.attack(player);
+          slime.attack(player);
           break;
 
         default:
@@ -75,7 +83,7 @@ public class Dungeon1 extends Floor{
 
       System.out.println("HP: " + player.getHp());
 
-      if(skeleton.getHp() <= 0) {
+      if(slime.getHp() <= 0) {
         completed = true;
         fighting = false;
         break;
@@ -89,11 +97,12 @@ public class Dungeon1 extends Floor{
     keyboard.close();
 
     if(completed) {
-      System.out.println("You defeated the skeleton!");
-      System.out.println("+200 POINTS");
-      player.addScore(skeleton.getPointReward());
+      System.out.println("You defeated the slime!");
+      System.out.println("+100 POINTS");
+      player.addScore(slime.getPointReward());
     } else {
       System.out.println("You died leaving your bones as a reminder to future adventurers");
     }
   }
+
 }
