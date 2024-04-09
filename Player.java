@@ -86,4 +86,12 @@ public class Player {
   public String toString() {
     return "HP: " + hp + " Points: " + score;
   }
+
+  public boolean isDead() {
+    if(hp <= 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

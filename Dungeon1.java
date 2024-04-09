@@ -28,7 +28,6 @@ public class Dungeon1 extends Floor{
       switch(command) {
         case "run":
           System.out.println();
-          System.out.println("The skeleton lunges and stabs you in the back");
           fighting = false;
           break;
 
@@ -77,14 +76,14 @@ public class Dungeon1 extends Floor{
       }
       System.out.println();
       System.out.println("==============================");
-      System.out.println("HP: " + player.getHp());
+      System.out.println(player);
 
       if(skeleton.getHp() <= 0) {
         completed = true;
         fighting = false;
         break;
       }
-      if(player.getHp() <= 0) {
+      if(player.isDead()) {
         fighting = false;
         break;
       }
@@ -92,9 +91,9 @@ public class Dungeon1 extends Floor{
 
     if(completed) {
       System.out.println("You defeated the skeleton!");
-      System.out.println("+200 POINTS");
+      System.out.println("+" + skeleton.getPointReward() + " POINTS");
       player.addScore(skeleton.getPointReward());
-    } else {
+    } else if(player.isDead()) {
       System.out.println("You died leaving your bones as a reminder to future adventurers");
     }
   }

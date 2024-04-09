@@ -25,7 +25,6 @@ public class Dungeon0 extends Floor{
       switch(command) {
         case "run":
           System.out.println();
-          System.out.println("You slip on the slime and fall hitting your head");
           fighting = false;
           break;
 
@@ -60,11 +59,11 @@ public class Dungeon0 extends Floor{
 
         case "pickup":
           System.out.println();
-          if(timesLooked == 1 && itemsPickedUp == 0) {
+          if(timesLooked >= 1 && itemsPickedUp == 0) {
             System.out.println("You pickup the short sword");
             player.addItem("short_sword");
             itemsPickedUp += 1;
-          } else if(timesLooked == 2 && itemsPickedUp == 1) {
+          } else if(timesLooked >= 2 && itemsPickedUp == 1) {
             System.out.println("You pickup the small shield");
             System.out.println("The small shield blocks 5 incoming damage");
             player.addItem("small_shield (passive)");
@@ -81,14 +80,14 @@ public class Dungeon0 extends Floor{
       }
       System.out.println();
       System.out.println("==============================");
-      System.out.println("HP: " + player.getHp());
+      System.out.println(player);
 
       if(slime.getHp() <= 0) {
         completed = true;
         fighting = false;
         break;
       }
-      if(player.getHp() <= 0) {
+      if(player.isDead()) {
         fighting = false;
         break;
       }
@@ -96,9 +95,9 @@ public class Dungeon0 extends Floor{
 
     if(completed) {
       System.out.println("You defeated the slime!");
-      System.out.println("+100 POINTS");
+      System.out.println("+" + slime.getPointReward() + " POINTS");
       player.addScore(slime.getPointReward());
-    } else {
+    } else if(player.isDead()) {
       System.out.println("You died leaving your bones as a reminder to future adventurers");
     }
   }
