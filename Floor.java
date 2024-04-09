@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /*
  * This class is going to be a super class
  * We will use this to create the levels for the game
@@ -26,14 +28,14 @@ public abstract class Floor {
     switch (item) {
       case "short_sword":
         e.addDamage(10);
-        System.out.println("You attack the skeleton for 10hp");
-        p.addDamage(e.getDamage());
+        System.out.println("You attack for 10hp");
+        e.attack(p);
         break;
 
       case "long_sword":
         e.addDamage(20);
-        System.out.println("You attack the skeleton for 20hp");
-        p.addDamage(e.getDamage());
+        System.out.println("You attack for 20hp");
+        e.attack(p);
         break;
 
       case "small_shield":
@@ -43,7 +45,7 @@ public abstract class Floor {
         p.addDamage(-20);
         p.removeItem("health_potion");
         System.out.println("You gained 20 hp!");
-        p.addDamage(e.getDamage());
+        e.attack(p);
         break;
 
       case "":
@@ -54,5 +56,5 @@ public abstract class Floor {
     }
   }
 
-  public abstract void run(Player p);
+  public abstract void run(Player p, Scanner keyboard);
 }

@@ -2,14 +2,13 @@ import java.util.Scanner;
 
 public class Dungeon0 extends Floor{
 
-  public void run(Player player) {
+  public void run(Player player, Scanner keyboard) {
 
     boolean fighting = true;
     int timesLooked = 0;
     int itemsPickedUp = 0;
     String command = "";
     Slime slime = new Slime(20, 2,100);
-    Scanner keyboard = new Scanner(System.in);
 
     displayLevelInformation();
     System.out.println();
@@ -19,7 +18,9 @@ public class Dungeon0 extends Floor{
       System.out.println("==============================");
       System.out.println("Commands: run   use_item   show_items   look   pickup");
       System.out.print("What would you like to do?: ");
-      command = keyboard.next();
+      do {
+        command = keyboard.next();
+      } while (command.equals(""));
 
       switch(command) {
         case "run":
@@ -93,8 +94,6 @@ public class Dungeon0 extends Floor{
         break;
       }
     }
-
-    keyboard.close();
 
     if(completed) {
       System.out.println("You defeated the slime!");

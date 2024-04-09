@@ -6,13 +6,12 @@ public class Dungeon1 extends Floor{
     levelNumber = 1;
   }
 
-  public void run(Player player) {
+  public void run(Player player, Scanner keyboard) {
     boolean fighting = true;
     boolean lookedAround = false;
     int itemsPickedUp = 0;
     String command = "";
     Skeleton skeleton = new Skeleton(100, 10,200);
-    Scanner keyboard = new Scanner(System.in);
 
     displayLevelInformation();
     System.out.println();
@@ -20,9 +19,11 @@ public class Dungeon1 extends Floor{
 
     while(fighting) {
       System.out.println("==============================");
-      System.out.println("Commands: run   item   look   pickup");
+      System.out.println("Commands: run   use_item   show_items   look   pickup");
       System.out.print("What would you like to do?: ");
-      command = keyboard.next();
+      do {
+        command = keyboard.next();
+      } while (command.equals(""));
 
       switch(command) {
         case "run":
@@ -41,6 +42,10 @@ public class Dungeon1 extends Floor{
           } else {
             System.out.println("You don't have that item");
           }
+          break;
+
+        case "show_items":
+          player.displayInventory();
           break;
 
         case "look":
@@ -85,8 +90,6 @@ public class Dungeon1 extends Floor{
         break;
       }
     }
-
-    keyboard.close();
 
     if(completed) {
       System.out.println("You defeated the skeleton!");
