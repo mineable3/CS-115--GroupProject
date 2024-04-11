@@ -1,13 +1,13 @@
-public class ork extends Enemy {
+public class Orc extends Enemy {
 
-  public ork(int hp,int damage,int pointReward)
+  public Orc(int hp,int damage,int pointReward)
   {
     super(hp, damage, pointReward);
   }
 
   public void attack(Player target)
   {
-    System.out.println("The skeleton attacks you");
+    System.out.println("The Orc attacks you");
     target.addDamage(getDamage());
   }
 }

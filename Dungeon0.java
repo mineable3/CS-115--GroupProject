@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Dungeon0 extends Floor{
@@ -9,10 +10,12 @@ public class Dungeon0 extends Floor{
     int itemsPickedUp = 0;
     String command = "";
     Slime slime = new Slime(20, 2,100);
+    Random generator = new Random();
+    int rng = 0;
+
 
     displayLevelInformation();
-    System.out.println();
-    System.out.println("A slime appears!");
+    System.out.println("\nA slime appears!");
 
     while(fighting) {
       System.out.println("Commands: run   use_item   show_items   look   pickup   help");
@@ -23,8 +26,15 @@ public class Dungeon0 extends Floor{
 
       switch(command) {
         case "run":
-          System.out.println();
-          fighting = false;
+          rng = generator.nextInt(4);
+          if(rng == 1)
+          {
+            System.out.println("\nYou ran away");
+            fighting = false;
+          }else{
+            System.out.println("\nYou fail to run away");
+            slime.attack(player);
+          }
           break;
 
         case "use_item":
