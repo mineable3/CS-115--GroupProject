@@ -39,6 +39,13 @@
     hp = hp - damage;
   }
 
+  public String toString()
+  {
+    return "HP: " + hp + "\tDamage: " + damage
+  }
+
   public abstract void attack (Player target);
+
+
 
 }
