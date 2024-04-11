@@ -73,14 +73,14 @@ public class Dungeon0 extends Floor{
           slime.attack(player);
           break;
 
-          case "help":
-            System.out.println("info:");
-            System.out.println("Run: allows you to flee from battle");
-            System.out.println("use_item: allows you to use items you have found");
-            System.out.println("show_item: allows you to check the items you have found");
-            System.out.println("look: searches the room for anything of use (does not pick up the item)");
-            System.out.println("pickup: picks up items you have found in the room (must use look before picking an item up)");
-            break;
+        case "help":
+          System.out.println("info:");
+          System.out.println("Run: allows you to flee from battle");
+          System.out.println("use_item: allows you to use items you have found");
+          System.out.println("show_item: allows you to check the items you have found");
+          System.out.println("look: searches the room for anything of use (does not pick up the item)");
+          System.out.println("pickup: picks up items you have found in the room (must use look before picking an item up)");
+          break;
 
         default:
           System.out.println("That is not a command");
