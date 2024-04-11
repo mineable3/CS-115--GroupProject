@@ -7,6 +7,7 @@ public class Slime extends Enemy{
 
   public void attack(Player target)
   {
-
+    System.out.println("The slime attacks you");
+    target.addDamage(getDamage());
   }
 }

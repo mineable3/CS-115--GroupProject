@@ -16,12 +16,27 @@ public class Player {
     this.hp = hp;
   }
 
+  public void addDamage(int damage)
+  {
+    if(hasItem("small_shield (passive)")) {
+      damage = damage - 5;
+      if(damage < 0) {
+        damage = 0;
+      }
+    }
+    hp -= damage;
+  }
+
   public int getScore() {
     return score;
   }
 
   public void setScore(int score) {
     this.score = score;
+  }
+
+  public void addScore(int score) {
+    this.score += score;
   }
 
   public String[] getInventory() {
@@ -57,10 +72,12 @@ public class Player {
 
   public void removeItem(String target) {
     String[] tempInventory = new String[inventory.length-1];
+    boolean removedItem = false;
 
     for(int i = 0; i < inventory.length; i++) {
-      if(!target.equals(inventory[i])) {
+      if(!target.equals(inventory[i]) && !removedItem) {
         tempInventory[i] = inventory[i];
+        removedItem = true;
       }
     }
     inventory = tempInventory;
@@ -68,5 +85,13 @@ public class Player {
 
   public String toString() {
     return "HP: " + hp + " Points: " + score;
+  }
+
+  public boolean isDead() {
+    if(hp <= 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
