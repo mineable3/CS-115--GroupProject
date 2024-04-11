@@ -41,7 +41,7 @@
 
   public String toString()
   {
-    return "HP: " + hp + "\tDamage: " + damage
+    return "HP: " + hp + "\tDamage: " + damage;
   }
 
   public abstract void attack (Player target);
