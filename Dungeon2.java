@@ -5,7 +5,7 @@ public class Dungeon2 extends Floor{
 
   public void run(Player player, Scanner keyboard) {
     boolean fighting = true;
-    boolean lookedAround = false;
+    int timesLooked = 0;
     int itemsPickedUp = 0;
     String command = "";
     Zombie zombie = new Zombie(50, 30,500);
@@ -54,27 +54,34 @@ public class Dungeon2 extends Floor{
 
         case "look":
           System.out.println();
-          lookedAround = true;
-          if(itemsPickedUp < 1) {
-            System.out.println("A health potion sits on the shelf");
+          timesLooked += 1;
+          if(itemsPickedUp == 0) {
+            System.out.println("A sword has been left in the zombie's chest");
+          } else if(itemsPickedUp == 1) {
+            System.out.println("Attached to the ceiling is a large shield");
           } else {
-            System.out.println("There is an empty shelf across the room");
+            System.out.println("Blood covers the floor");
           }
 
           zombie.attack(player);
           break;
 
-        case "pickup":
-          System.out.println();
-          if(lookedAround && itemsPickedUp < 1) {
-            System.out.println("You pickup the health potion");
-            player.addItem("health_potion");
-            itemsPickedUp += 1;
-          } else {
-            System.out.println("There is nothing to pickup");
-          }
-          zombie.attack(player);
-          break;
+      case "pickup":
+        System.out.println();
+        if(timesLooked >= 1 && itemsPickedUp == 0) {
+          System.out.println("You pickup the long sword");
+          player.addItem("long_sword");
+          itemsPickedUp += 1;
+        } else if(timesLooked >= 2 && itemsPickedUp == 1) {
+          System.out.println("You pickup the large shield");
+          System.out.println("The large shield blocks 10 incoming damage");
+          player.addItem("large_shield (passive)");
+          itemsPickedUp += 1;
+        } else {
+          System.out.println("There is nothing to pickup");
+        }
+        zombie.attack(player);
+        break;
 
         case "help":
           System.out.println("info:");

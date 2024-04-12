@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.Scanner;
 
 public class Dungeon3 extends Floor{
@@ -7,8 +6,6 @@ public class Dungeon3 extends Floor{
     boolean fighting = true;
     String command = "";
     Orc orc = new Orc(500, 20,1000);
-    Random generator = new Random();
-    int rng = 0;
 
     displayLevelInformation();
     System.out.println();
