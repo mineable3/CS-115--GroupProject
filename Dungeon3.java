@@ -5,8 +5,6 @@ public class Dungeon3 extends Floor{
 
   public void run(Player player, Scanner keyboard) {
     boolean fighting = true;
-    boolean lookedAround = false;
-    int itemsPickedUp = 0;
     String command = "";
     Orc orc = new Orc(500, 20,1000);
     Random generator = new Random();
@@ -26,15 +24,7 @@ public class Dungeon3 extends Floor{
 
       switch(command) {
         case "run":
-          rng = generator.nextInt(4);
-          if(rng == 1)
-          {
-           System.out.println("\nYou ran away");
-           fighting = false;
-          }else{
-            System.out.println("\nYou fail to run away");
-            orc.attack(player);
-          }
+          System.out.println("You're too deep in the dungeon to run now. You have to kill the orc!");
           break;
 
         case "use_item":
@@ -53,32 +43,16 @@ public class Dungeon3 extends Floor{
           break;
 
         case "look":
-          System.out.println();
-          lookedAround = true;
-          if(itemsPickedUp < 1) {
-            System.out.println("A health potion sits on the shelf");
-          } else {
-            System.out.println("There is an empty shelf across the room");
-          }
-
-          orc.attack(player);
+          System.out.println("It's just you and the scary orc");
           break;
 
         case "pickup":
-          System.out.println();
-          if(lookedAround && itemsPickedUp < 1) {
-            System.out.println("You pickup the health potion");
-            player.addItem("health_potion");
-            itemsPickedUp += 1;
-          } else {
-            System.out.println("There is nothing to pickup");
-          }
-          orc.attack(player);
+          System.out.println("There is nothing to pickup");
           break;
 
         case "help":
           System.out.println("info:");
-          System.out.println("Run: allows you to flee from battle");
+          System.out.println("Run: It's all or nothing. Running is not an option");
           System.out.println("use_item: allows you to use items you have found");
           System.out.println("show_item: allows you to check the items you have found");
           System.out.println("look: searches the room for anything of use (does not pick up the item)");
