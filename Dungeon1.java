@@ -21,7 +21,6 @@ public class Dungeon1 extends Floor{
     System.out.println("A skeleton appears!");
 
     while(fighting) {
-      System.out.println("==============================");
       System.out.println("Commands: run   use_item   show_items   look   pickup   help");
       System.out.print("What would you like to do?: ");
       do {
