@@ -8,7 +8,7 @@ public class Dungeon2 extends Floor{
     boolean lookedAround = false;
     int itemsPickedUp = 0;
     String command = "";
-    Zombie zombie = new Zombie(50, 20,500);
+    Zombie zombie = new Zombie(50, 30,500);
     Random generator = new Random();
     int rng = 0;
 
@@ -29,8 +29,8 @@ public class Dungeon2 extends Floor{
           rng = generator.nextInt(4);
           if(rng == 1)
           {
-           System.out.println("\nYou ran away");
-           fighting = false;
+            System.out.println("\nYou ran away");
+            fighting = false;
           }else{
             System.out.println("\nYou fail to run away");
             zombie.attack(player);
