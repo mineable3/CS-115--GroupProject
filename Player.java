@@ -19,7 +19,10 @@ public class Player {
   public void addDamage(int damage)
   {
     if(hasItem("small_shield (passive)")) {
-      hp -= (damage - 5);
+      damage = damage - 5;
+      if(damage < 0) {
+        damage = 0;
+      }
     }
     hp -= damage;
   }
@@ -82,5 +85,13 @@ public class Player {
 
   public String toString() {
     return "HP: " + hp + " Points: " + score;
+  }
+
+  public boolean isDead() {
+    if(hp <= 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

@@ -7,6 +7,8 @@ public class Zombie extends Enemy{
 
   public void attack(Player target)
   {
-
+    System.out.println("The zombie bites you");
+    target.addDamage(damage);
+    setHp(hp + (damage/2));
   }
 }
