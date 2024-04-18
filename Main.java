@@ -13,6 +13,11 @@ public class Main {
     Dungeon2 level2 = new Dungeon2();
     Dungeon3 level3 = new Dungeon3();
     tutorial.run(p, keyboard);
+    // p.addItem("short_sword");
+    // p.addItem("small_shield (passive)");
+    // p.addItem("health_potion");
+    // p.addItem("long_sword");
+    // p.addItem("large_shield (passive)");
     if(!p.isDead()) {
       level1.run(p, keyboard);
     }

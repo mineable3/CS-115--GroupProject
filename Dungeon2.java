@@ -8,7 +8,7 @@ public class Dungeon2 extends Floor{
     int timesLooked = 0;
     int itemsPickedUp = 0;
     String command = "";
-    Zombie zombie = new Zombie(50, 30,500);
+    Zombie zombie = new Zombie(50, 10,500);
     Random generator = new Random();
     int rng = 0;
 
