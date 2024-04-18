@@ -18,7 +18,12 @@ public class Player {
 
   public void addDamage(int damage)
   {
-    if(hasItem("small_shield (passive)")) {
+    if(hasItem("large_shield (passive)")) {
+      damage = damage - 10;
+      if(damage < 0) {
+        damage = 0;
+      }
+    } else if(hasItem("small_shield (passive)")) {
       damage = damage - 5;
       if(damage < 0) {
         damage = 0;
@@ -77,6 +82,9 @@ public class Player {
     for(int i = 0; i < inventory.length; i++) {
       if(!target.equals(inventory[i]) && !removedItem) {
         tempInventory[i] = inventory[i];
+      } else if(!target.equals(inventory[i]) && removedItem) {
+        tempInventory[i - 1] = inventory[i];
+      } else if(target.equals(inventory[i]) && !removedItem){
         removedItem = true;
       }
     }

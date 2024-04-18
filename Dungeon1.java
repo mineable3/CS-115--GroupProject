@@ -12,7 +12,7 @@ public class Dungeon1 extends Floor{
     boolean lookedAround = false;
     int itemsPickedUp = 0;
     String command = "";
-    Skeleton skeleton = new Skeleton(100, 10,200);
+    Skeleton skeleton = new Skeleton(60, 10,200);
     Random generator = new Random();
     int rng = 0;
 

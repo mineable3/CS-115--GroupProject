@@ -42,9 +42,9 @@ public abstract class Floor {
         break;
 
       case "health_potion":
-        p.addDamage(-40);
+        p.setHp(p.getHp() + 50);
         p.removeItem("health_potion");
-        System.out.println("You gained 40 hp!");
+        System.out.println("You gained 50 hp!");
         e.attack(p);
         break;
 

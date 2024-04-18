@@ -5,7 +5,7 @@ public class Dungeon3 extends Floor{
   public void run(Player player, Scanner keyboard) {
     boolean fighting = true;
     String command = "";
-    Orc orc = new Orc(500, 20,1000);
+    Orc orc = new Orc(100, 15,1000);
 
     displayLevelInformation();
     System.out.println();
