@@ -83,7 +83,7 @@ public class Player {
       if(!target.equals(inventory[i]) && !removedItem) {
         tempInventory[i] = inventory[i];
       } else if(!target.equals(inventory[i]) && removedItem) {
-        tempInventory[i - 1] = inventory[i - 1];
+        tempInventory[i - 1] = inventory[i];
       } else if(target.equals(inventory[i]) && !removedItem){
         removedItem = true;
       }
